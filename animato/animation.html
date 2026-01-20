@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expanded Animations Demo</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    /* 1. Bouncing Ball */
+    .ball {
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border-radius: 50%;
+      animation: bounce 2s infinite ease-in-out, morph 2s infinite alternate;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(200px); }
+    }
+    @keyframes morph {
+      0% { background-color: red; border-radius: 50%; }
+      50% { background-color: blue; border-radius: 20%; }
+      100% { background-color: green; border-radius: 50%; }
+    }
+
+    /* 2. Rotating Square */
+    .square {
+      width: 80px;
+      height: 80px;
+      background-color: blue;
+      animation: moveSquare 3s infinite alternate ease-in-out,
+                 rotateSquare 3s infinite linear,
+                 colorSquare 3s infinite alternate;
+    }
+    @keyframes moveSquare {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(300px); }
+    }
+    @keyframes rotateSquare {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes colorSquare {
+      0% { background-color: blue; }
+      50% { background-color: purple; }
+      100% { background-color: orange; }
+    }
+
+    /* 3. Rotating Triangle */
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid yellow;
+      animation: rotateTriangle 4s infinite linear;
+    }
+    @keyframes rotateTriangle {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* 4. Animated SVG Circle */
+    svg { width: 200px; height: 100px; }
+    .circle {
+      fill: cyan;
+      animation: moveCircle 3s infinite alternate ease-in-out;
+    }
+    @keyframes moveCircle {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(150px); }
+    }
+
+    /* 5. Multi‑animation element with extra effects */
+    .multi {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      border-radius: 20%;
+      animation: moveMulti 3s infinite alternate ease-in-out,
+                 rotateMulti 3s infinite linear,
+                 colorMulti 3s infinite alternate,
+                 scaleMulti 2s infinite alternate ease-in-out,
+                 fadeMulti 2s infinite alternate ease-in-out;
+    }
+    @keyframes moveMulti {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(150px); }
+    }
+    @keyframes rotateMulti {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes colorMulti {
+      0% { background-color: pink; }
+      25% { background-color: lime; }
+      50% { background-color: gold; }
+      75% { background-color: cyan; }
+      100% { background-color: brown; }
+    }
+    @keyframes scaleMulti {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.5); }
+    }
+    @keyframes fadeMulti {
+      0% { opacity: 1; }
+      100% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <h2>Bouncing Ball</h2>
+  <div class="ball"></div>
+
+  <h2>Rotating Square</h2>
+  <div class="square"></div>
+
+  <h2>Rotating Triangle</h2>
+  <div class="triangle"></div>
+
+  <h2>Animated SVG Circle</h2>
+  <svg>
+    <circle class="circle" cx="30" cy="50" r="30"></circle>
+  </svg>
+
+  <h2>Multi‑Animation Element</h2>
+  <div class="multi"></div>
+</body>
+</html>
